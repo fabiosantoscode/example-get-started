@@ -6,3 +6,17 @@ stages:
     - src/prepare.py
     outs:
     - data/prepared
+  featurize:
+    cmd: python src/featurization.py data/prepared data/features
+    deps:
+    - data/prepared
+    - src/featurization.py
+    outs:
+    - data/features
+  train:
+    cmd: python src/train.py data/features model.pkl
+    deps:
+    - data/features
+    - src/train.py
+    outs:
+    - model.pkl

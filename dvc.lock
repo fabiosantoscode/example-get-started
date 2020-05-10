@@ -8,3 +8,23 @@ prepare:
   outs:
   - path: data/prepared
     md5: 6836f797f3924fb46fcfd6b9f6aa6416.dir
+featurize:
+  cmd: python src/featurization.py data/prepared data/features
+  deps:
+  - path: data/prepared
+    md5: 6836f797f3924fb46fcfd6b9f6aa6416.dir
+  - path: src/featurization.py
+    md5: e6d8262e922894e85a959816f9a77ae7
+  outs:
+  - path: data/features
+    md5: 3338d2c21bdb521cda0ba4add89e1cb0.dir
+train:
+  cmd: python src/train.py data/features model.pkl
+  deps:
+  - path: data/features
+    md5: 3338d2c21bdb521cda0ba4add89e1cb0.dir
+  - path: src/train.py
+    md5: d05e0201a3fb47c878defea65bd85e4d
+  outs:
+  - path: model.pkl
+    md5: f88410599cd039238471f61973fd830a
