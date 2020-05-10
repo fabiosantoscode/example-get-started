@@ -20,3 +20,11 @@ stages:
     - src/train.py
     outs:
     - model.pkl
+  evaluate:
+    cmd: python src/evaluate.py model.pkl data/features auc.metric
+    deps:
+    - data/features
+    - model.pkl
+    - src/evaluate.py
+    metrics_no_cache:
+    - auc.metric

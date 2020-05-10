@@ -28,3 +28,15 @@ train:
   outs:
   - path: model.pkl
     md5: f88410599cd039238471f61973fd830a
+evaluate:
+  cmd: python src/evaluate.py model.pkl data/features auc.metric
+  deps:
+  - path: data/features
+    md5: 3338d2c21bdb521cda0ba4add89e1cb0.dir
+  - path: model.pkl
+    md5: f88410599cd039238471f61973fd830a
+  - path: src/evaluate.py
+    md5: fea9c7bb1242b5e43d682c5d43e7c1d1
+  outs:
+  - path: auc.metric
+    md5: f58e5ccd66bf1195b53f458e7f619ab8
