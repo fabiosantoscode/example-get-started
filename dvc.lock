@@ -1,0 +1,10 @@
+prepare:
+  cmd: python src/prepare.py data/data.xml
+  deps:
+  - path: data/data.xml
+    md5: a304afb96060aad90176268345e10355
+  - path: src/prepare.py
+    md5: 1a18704abffac804adf2d5c4549f00f7
+  outs:
+  - path: data/prepared
+    md5: 6836f797f3924fb46fcfd6b9f6aa6416.dir
