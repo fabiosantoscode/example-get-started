@@ -64,12 +64,12 @@ evaluate:
     md5: 17b3d1efc339b416c4b5615b1ce1b97e
     size: 2712300
   - path: src/evaluate.py
-    md5: 631fd3f13434edcf4abd56a5b798e8b2
-    size: 1091
+    md5: b80079c62cc327da88122d1af1add01b
+    size: 663
   outs:
   - path: prc.json
-    md5: d3c57bccfa924bee85e00f674b8724f9
-    size: 2188
+    md5: 5b729ff7665d078245fbfd593f73689e
+    size: 15774
   - path: scores.json
-    md5: 662bf00be6fe3172b69944b9d6f704cd
-    size: 27
+    md5: 5b729ff7665d078245fbfd593f73689e
+    size: 15774

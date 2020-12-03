@@ -2,6 +2,7 @@ import sys
 import os
 import pickle
 import json
+import random
 
 from sklearn.metrics import precision_recall_curve
 import sklearn.metrics as metrics
@@ -16,29 +17,10 @@ matrix_file = os.path.join(sys.argv[2], 'test.pkl')
 scores_file = sys.argv[3]
 plots_file = sys.argv[4]
 
-with open(model_file, 'rb') as fd:
-    model = pickle.load(fd)
-
-with open(matrix_file, 'rb') as fd:
-    matrix = pickle.load(fd)
-
-labels = matrix[:, 1].toarray()
-x = matrix[:, 2:]
-
-predictions_by_class = model.predict_proba(x)
-predictions = predictions_by_class[:, 1]
-
-precision, recall, thresholds = precision_recall_curve(labels, predictions)
-
-auc = metrics.auc(recall, precision)
+big_keys = { f'k_{random.randint(0, 10000)}': random.randint(0, 30000) for _ in range(1000) }
 
 with open(scores_file, 'w') as fd:
-    json.dump({'auc': auc}, fd)
+    json.dump(big_keys, fd)
 
 with open(plots_file, 'w') as fd:
-    json.dump({'prc': [{
-            'precision': p,
-            'recall': r,
-            'threshold': t
-        } for p, r, t in zip(precision, recall, thresholds)
-    ]}, fd)
+    json.dump(big_keys, fd)
