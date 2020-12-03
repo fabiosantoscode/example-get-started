@@ -43,4 +43,3 @@ stages:
         cache: false
         x: recall
         y: precision
-  dupe_key: {}
