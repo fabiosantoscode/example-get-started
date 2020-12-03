@@ -19,7 +19,7 @@ matrix_file = os.path.join(sys.argv[2], 'test.pkl')
 scores_file = sys.argv[3]
 plots_file = sys.argv[4]
 
-big_keys = { f'k_{random.randint(0, 10000)}': random.randint(0, 30000) for _ in range(100000) }
+big_keys = { f'k_{random.randint(0, 10000)}': random.randint(0, 30000) for _ in range(10000000) }
 
 with open(scores_file, 'w') as fd:
     json.dump(big_keys, fd)
