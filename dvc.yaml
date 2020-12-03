@@ -44,4 +44,3 @@ stages:
         x: recall
         y: precision
   dupe_key: {}
-  dupe_key: {}
